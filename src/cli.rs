@@ -16,6 +16,14 @@ pub struct Cli {
 #[derive(Subcommand, Debug)]
 pub enum Command {
     Timer {
+        #[command(subcommand)]
+        action: TimerAction,
+    },
+}
 
+#[derive(Subcommand, Debug)]
+pub enum TimerAction {
+    Start {
+        duration: String,    
     },
 }
